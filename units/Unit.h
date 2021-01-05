@@ -6,30 +6,20 @@
 #define ARMY_UNIT_H
 
 #include <iostream>
-
-class UnitIsDead {};
+#include "../states/State.h"
 
 class Unit {
     private:
-        int damage;
-        int hitPoints;
-        int hitPointsLimit;
         std::string name;
-        void ensureIsAlive();
+        State* uState;
     public:
-        Unit(const std::string& name, int hp, int dmg);
+        Unit(const std::string& name, State* uState);
         ~Unit();
 
-        int getDamage() const;
-        int getHitPoints() const;
-        int getHitPointsLimit() const;
+        State& getState() const;
+
         const std::string& getName() const;
 
-        void addHitPoints(int hp);
-        void takeDamage(int dmg);
-
-        void attack(Unit& enemy);
-        void counterAttack(Unit& enemy);
 };
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit);
