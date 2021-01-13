@@ -7,16 +7,22 @@
 
 #include <iostream>
 #include "../states/State.h"
+#include "../attacks/BaseAttack.h"
+
+class BaseAttack;
 
 class Unit {
     private:
         std::string name;
         State* uState;
+        BaseAttack* uAttack;
     public:
-        Unit(const std::string& name, State* uState);
+        Unit(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Unit();
 
         State& getState() const;
+
+        void attack(Unit* enemy);
 
         const std::string& getName() const;
 

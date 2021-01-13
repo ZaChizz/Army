@@ -4,15 +4,22 @@
 
 #include "Unit.h"
 
-Unit::Unit(const std::string& name, State* uState) {
+Unit::Unit(const std::string& name, State* uState, BaseAttack* uAttack) {
     this->name = name;
     this->uState = uState;
+    this->uAttack = uAttack;
 }
 
-Unit::~Unit() {}
+Unit::~Unit() {
+}
 
 const std::string& Unit::getName() const {
     return this->name;
+}
+
+void Unit::attack(Unit* enemy) {
+    this->uAttack->attack(this, enemy);
+    this->uAttack->counterAttack(this, enemy);
 }
 
 State& Unit::getState() const {

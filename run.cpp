@@ -8,28 +8,17 @@
 
 int main() {
 
-    Unit* barbarian = new Unit ("Barbarian", new State(50,20));
-    Unit* knight = new Unit ("Knight", new State(40,16));
+    Unit* barbarian = new Unit ("Barbarian", new State(50,20), new BaseAttack());
+    Unit* knight = new Unit ("Knight", new State(40,16), new BaseAttack());
 
     std::cout << *barbarian << std::endl;
     std::cout << *knight << std::endl;
 
-    /*
-    barbarian.attack(knight);
+    barbarian->attack(knight);
 
-    std::cout << barbarian << std::endl;
-    std::cout << knight << std::endl;
+    std::cout << *barbarian << std::endl;
+    std::cout << *knight << std::endl;
 
-    barbarian.attack(knight);
-
-    std::cout << barbarian << std::endl;
-    std::cout << knight << std::endl;
-
-    barbarian.attack(knight);
-
-    std::cout << barbarian << std::endl;
-    std::cout << knight << std::endl;
-    */
     return 0;
 }
 
