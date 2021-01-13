@@ -11,6 +11,8 @@ Unit::Unit(const std::string& name, State* uState, BaseAttack* uAttack) {
 }
 
 Unit::~Unit() {
+    delete(this->uState);
+    delete(this->uAttack);
 }
 
 const std::string& Unit::getName() const {

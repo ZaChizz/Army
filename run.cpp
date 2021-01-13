@@ -5,11 +5,12 @@
 #include <iostream>
 
 #include "units/Unit.h"
+#include "units/Soldier.h"
 
 int main() {
 
     Unit* barbarian = new Unit ("Barbarian", new State(50,20), new BaseAttack());
-    Unit* knight = new Unit ("Knight", new State(40,16), new BaseAttack());
+    Unit* knight = new Soldier ("Knight", new State(40,16), new BaseAttack());
 
     std::cout << *barbarian << std::endl;
     std::cout << *knight << std::endl;
