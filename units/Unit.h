@@ -15,12 +15,13 @@ class Unit {
     private:
         std::string name;
         State* uState;
-        BaseAttack* uAttack;
     public:
         Unit(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Unit();
 
         State& getState() const;
+
+        BaseAttack* uAttack;
 
         void attack(Unit* enemy);
 
@@ -28,6 +29,6 @@ class Unit {
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Unit& unit);
+std::ostream& operator<<(std::ostream& out, Unit& unit);
 
 #endif //ARMY_UNIT_H

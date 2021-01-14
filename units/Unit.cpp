@@ -28,7 +28,7 @@ State& Unit::getState() const {
     return *(this->uState);
 }
 
-std::ostream& operator<<(std::ostream& out, const Unit& unit) {
+std::ostream& operator<<(std::ostream& out, Unit& unit) {
     out << unit.getName() <<": "<< std::endl;
     out << unit.getState() << std::endl;
 
