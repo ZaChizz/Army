@@ -14,4 +14,3 @@ void BaseAttack::attack(Unit* attacker, Unit* enemy) {
 void BaseAttack::counterAttack(Unit* attacker, Unit* enemy) {
     attacker->getState().setDamage(enemy->getState().getDamage() / 2);
 }
-

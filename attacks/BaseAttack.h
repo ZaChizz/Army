@@ -1,8 +1,8 @@
 //
 // Created by Admin on 05.01.2021.
 //
-#ifndef BASEATTACK_H
-#define BASEATTACK_H
+#ifndef BASE_ATTACK_H
+#define BASE_ATTACK_H
 
 #include <iostream>
 
@@ -20,5 +20,4 @@ class BaseAttack {
 
 };
 
-#endif //BASEATTACK_H
-
+#endif //BASE_ATTACK_H
