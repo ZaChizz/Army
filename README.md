@@ -1,4 +1,4 @@
-# army
+# Army
 Unit Class
 
 attack()
