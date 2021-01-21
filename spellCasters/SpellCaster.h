@@ -13,16 +13,26 @@
 #include "../attacks/BaseAttack.h"
 #include "../attacks/MagicAttack.h"
 
+#include "../spellBook/SpellBook.h"
+
 class MagicAttack;
 
 class SpellCaster : public Unit {
+    private:
+        SpellBook* sBook;
     public:
-        SpellCaster(const std::string& name, State* uState, BaseAttack* uAttack, MagicAttack* mAttack);
-        ~SpellCaster();
-
         MagicAttack* mAttack;
 
-        void spellAttack(Unit* enemy);
+        SpellCaster(const std::string& name,
+                    State* uState,
+                    BaseAttack* uAttack,
+                    MagicAttack* mAttack,
+                    SpellBook* sBook);
+        ~SpellCaster();
+
+        SpellBook& getSpellBook() const;
+
+        void spellAttack(Unit* enemy, const std::string& spellName);
 
 };
 

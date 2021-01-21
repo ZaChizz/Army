@@ -16,7 +16,7 @@ class MagicAttack {
         MagicAttack();
         ~MagicAttack();
 
-        void attack(SpellCaster* attacker, Unit* enemy);
+        void attack(SpellCaster* attacker, Unit* enemy, const int mDmg);
 };
 
 #endif //ARMY_MAGIC_ATTACK_H
