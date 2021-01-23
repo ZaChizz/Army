@@ -68,7 +68,7 @@ void State::setDamage(const int dmg) {
     }
 }
 
-void State::setMagicDamage(const int mDmg) {
+const void State::setMagicDamage(const int mDmg) {
     this->isAlive();
 
     if ( mDmg >= this->magicHitPoints ) {

@@ -18,7 +18,7 @@ class State {
         int magicHitPointsLimit;
         void isAlive();
     public:
-        State( int hp, int dmg, int mHp);
+        State(int hp, int dmg, int mHp);
         ~State();
 
         int getDamage() const;
@@ -33,7 +33,7 @@ class State {
         void setMagicHitPoints(const int mHp);
 
         void setDamage(const int dmg);
-        void setMagicDamage(const int mDmg);
+        virtual const void setMagicDamage(const int mDmg);
 };
 
 std::ostream& operator<<(std::ostream& out, const State& state);

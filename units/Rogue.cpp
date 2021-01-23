@@ -5,9 +5,14 @@
 #include "Rogue.h"
 
 Rogue::Rogue(const std::string& name, State* uState, BaseAttack* uAttack)
-    :Unit(name, uState, uAttack) {
+    :Unit(name, uAttack) {
+    this->uState = uState;
 };
 Rogue::~Rogue() {};
+
+State& Rogue::getState() {
+    return *(this->uState);
+}
 
 void Rogue::attack(Unit* enemy) {
     this->uAttack->attack(this, enemy);

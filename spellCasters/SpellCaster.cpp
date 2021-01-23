@@ -10,14 +10,19 @@ SpellCaster::SpellCaster(const std::string& name,
                          BaseAttack* uAttack,
                          MagicAttack* mAttack,
                          SpellBook* sBook)
-    :Unit(name, uState, uAttack) {
+    :Unit(name, uAttack) {
     this->mAttack = mAttack;
     this->sBook = sBook;
+    this->uState = uState;
 }
 
 SpellCaster::~SpellCaster() {
     delete(this->mAttack);
     delete(this->sBook);
+}
+
+State& SpellCaster::getState() {
+    return *(this->uState);
 }
 
 SpellBook& SpellCaster::getSpellBook() const {

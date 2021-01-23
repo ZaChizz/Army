@@ -9,9 +9,13 @@
 #include "Unit.h"
 
 class Soldier : public Unit {
+    private:
+        State* uState;
     public:
         Soldier(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Soldier();
+
+        State& getState();
 };
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier);

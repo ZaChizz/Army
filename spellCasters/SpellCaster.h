@@ -20,6 +20,7 @@ class MagicAttack;
 class SpellCaster : public Unit {
     private:
         SpellBook* sBook;
+        State* uState;
     public:
         MagicAttack* mAttack;
 
@@ -29,6 +30,8 @@ class SpellCaster : public Unit {
                     MagicAttack* mAttack,
                     SpellBook* sBook);
         ~SpellCaster();
+
+        State& getState();
 
         SpellBook& getSpellBook() const;
 

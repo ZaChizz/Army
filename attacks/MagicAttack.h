@@ -8,6 +8,7 @@
 #include <iostream>
 
 #include "../spellCasters/SpellCaster.h"
+#include "../units/Berserker.h"
 
 class SpellCaster;
 

@@ -4,9 +4,9 @@
 
 #include <iostream>
 
-#include "units/Unit.h"
 #include "units/Soldier.h"
 #include "units/Rogue.h"
+#include "units/Berserker.h"
 #include "spellCasters/SpellCaster.h"
 
 int main() {
@@ -20,8 +20,8 @@ int main() {
                                            new MagicAttack(),
                                            new SpellBook(book)
                                            );
-    Unit* barbarian = new Unit ("Barbarian rogue",
-                                new State(50,20,30),
+    Berserker* barbarian = new Berserker ("Barbarian rogue",
+                                new NoMagicState(50,20,30),
                                 new BaseAttack());
     Soldier* goga = new Soldier ("Goga",
                                  new State(40,16,20),
@@ -30,10 +30,15 @@ int main() {
                                new State(50,20,30),
                                new BaseAttack());
 
+    Berserker* tuze = new Berserker("Tuze",
+                                    new NoMagicState(50,20,20),
+                                    new BaseAttack());
+
     std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
     std::cout << *knight << std::endl;
+    std::cout << *tuze << std::endl;
 
     std::cout << "----Fight----" << std::endl;
 
@@ -41,11 +46,14 @@ int main() {
     knight->attack(goga);
     wizard->spellAttack(barbarian,"magicHit10");
     barbarian->attack(wizard);
+    wizard->spellAttack(tuze,"magicHit10");
+    knight->attack(tuze);
 
     std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
     std::cout << *knight << std::endl;
+    std::cout << *tuze << std::endl;
 
     return 0;
 }

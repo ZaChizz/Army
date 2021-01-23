@@ -9,9 +9,13 @@
 #include "Unit.h"
 
 class Rogue : public Unit {
+    private:
+        State* uState;
     public:
         Rogue(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Rogue();
+
+        State& getState();
 
         void attack(Unit* enemy);
 };
