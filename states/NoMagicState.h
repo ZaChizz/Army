@@ -13,7 +13,7 @@ class NoMagicState : public State {
         NoMagicState(int hp, int dmg, int mHp);
         ~NoMagicState();
 
-        virtual const void setMagicDamage(const int mDmg);
+        virtual const void takeMagicDamage(const int mDmg);
 };
 
 std::ostream& operator<<(std::ostream& out, const NoMagicState& noMagicState);

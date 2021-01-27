@@ -7,10 +7,10 @@
 BaseAttack::BaseAttack() {};
 BaseAttack::~BaseAttack() {};
 
-void BaseAttack::attack(Unit* attacker, Unit* enemy) {
-    enemy->getState().setDamage(attacker->getState().getDamage());
+const void BaseAttack::attack(Unit* attacker, Unit* enemy) {
+    enemy->getState().takeDamage(attacker->getState().getDamage());
 }
 
-void BaseAttack::counterAttack(Unit* attacker, Unit* enemy) {
-    attacker->getState().setDamage(enemy->getState().getDamage() / 2);
+const void BaseAttack::counterAttack(Unit* attacker, Unit* enemy) {
+    attacker->getState().takeDamage(enemy->getState().getDamage() / 2);
 }

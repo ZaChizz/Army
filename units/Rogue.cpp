@@ -5,17 +5,24 @@
 #include "Rogue.h"
 
 Rogue::Rogue(const std::string& name, State* uState, BaseAttack* uAttack)
-    :Unit(name, uAttack) {
+    :Unit(name) {
     this->uState = uState;
+    this->uAttack = uAttack;
 };
-Rogue::~Rogue() {};
+Rogue::~Rogue() {
+    delete(this->uState);
+};
 
 State& Rogue::getState() {
     return *(this->uState);
 }
 
+BaseAttack& Rogue::getAttack() {
+    return *(this->uAttack);
+}
+
 void Rogue::attack(Unit* enemy) {
-    this->uAttack->attack(this, enemy);
+    this->getAttack().attack(this, enemy);
 }
 
 std::ostream& operator<<(std::ostream& out, Rogue& rogue) {

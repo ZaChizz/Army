@@ -11,11 +11,13 @@
 class Soldier : public Unit {
     private:
         State* uState;
+        BaseAttack* uAttack;
     public:
         Soldier(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Soldier();
 
         State& getState();
+        BaseAttack& getAttack();
 };
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier);

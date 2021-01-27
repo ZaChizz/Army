@@ -12,11 +12,13 @@
 class Berserker : public Unit {
     private:
         NoMagicState* uState;
+        BaseAttack* uAttack;
     public:
         Berserker(const std::string& name, NoMagicState* uState, BaseAttack* uAttack);
         ~Berserker();
 
         NoMagicState& getState();
+        BaseAttack& getAttack();
 
 };
 

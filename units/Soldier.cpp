@@ -5,14 +5,21 @@
 #include "Soldier.h"
 
 Soldier::Soldier(const std::string& name, State* uState, BaseAttack* uAttack)
-    : Unit(name, uAttack) {
+    : Unit(name) {
     this->uState = uState;
+    this->uAttack = uAttack;
 
 };
-Soldier::~Soldier() {};
+Soldier::~Soldier() {
+    delete(this->uState);
+};
 
 State& Soldier::getState() {
     return *(this->uState);
+}
+
+BaseAttack& Soldier::getAttack() {
+    return *(this->uAttack);
 }
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier) {

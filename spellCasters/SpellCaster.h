@@ -16,11 +16,13 @@
 #include "../spellBook/SpellBook.h"
 
 class MagicAttack;
+class BaseAttack;
 
 class SpellCaster : public Unit {
     private:
         SpellBook* sBook;
         State* uState;
+        BaseAttack* uAttack;
     public:
         MagicAttack* mAttack;
 
@@ -32,6 +34,8 @@ class SpellCaster : public Unit {
         ~SpellCaster();
 
         State& getState();
+
+        BaseAttack& getAttack();
 
         SpellBook& getSpellBook() const;
 

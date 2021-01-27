@@ -4,23 +4,19 @@
 
 #include "Unit.h"
 
-Unit::Unit(const std::string& name, BaseAttack* uAttack) {
+Unit::Unit(const std::string& name) {
     this->name = name;
-    this->uAttack = uAttack;
 }
 
-Unit::~Unit() {
-    delete(this->uState);
-    delete(this->uAttack);
-}
+Unit::~Unit() {}
 
 const std::string& Unit::getName() const {
     return this->name;
 }
 
 void Unit::attack(Unit* enemy) {
-    this->uAttack->attack(this, enemy);
-    this->uAttack->counterAttack(this, enemy);
+    this->getAttack().attack(this, enemy);
+    this->getAttack().counterAttack(this, enemy);
 }
 
 std::ostream& operator<<(std::ostream& out, Unit& unit) {

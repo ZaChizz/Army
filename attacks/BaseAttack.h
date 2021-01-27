@@ -15,8 +15,8 @@ class BaseAttack {
         BaseAttack();
         ~BaseAttack();
 
-        void attack(Unit* attacker, Unit* enemy);
-        void counterAttack(Unit* attacker, Unit* enemy);
+        virtual const void attack(Unit* attacker, Unit* enemy);
+        virtual const void counterAttack(Unit* attacker, Unit* enemy);
 
 };
 

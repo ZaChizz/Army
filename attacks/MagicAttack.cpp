@@ -8,5 +8,5 @@ MagicAttack::MagicAttack() {};
 MagicAttack::~MagicAttack() {};
 
 void MagicAttack::attack(SpellCaster* attacker, Unit* enemy, const int mDmg) {
-    enemy->getState().setMagicDamage(mDmg);
+    enemy->getState().takeMagicDamage(mDmg);
 }

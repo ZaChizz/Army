@@ -40,6 +40,14 @@ int State::getMagicHitPointsLimit() const {
     return this->magicHitPointsLimit;
 }
 
+void State::updateDamage(const int dmg) {
+    if ( dmg >= this->damage ) {
+        this->damage = 0;
+    } else {
+        this->damage -= dmg;
+    }
+}
+
 void State::setHitPoints(const int hp) {
     this->isAlive();
 
@@ -58,7 +66,7 @@ void State::setMagicHitPoints(const int mHp) {
     }
 }
 
-void State::setDamage(const int dmg) {
+void State::takeDamage(const int dmg) {
     this->isAlive();
 
     if ( dmg >= this->hitPoints ) {
@@ -68,7 +76,7 @@ void State::setDamage(const int dmg) {
     }
 }
 
-const void State::setMagicDamage(const int mDmg) {
+const void State::takeMagicDamage(const int mDmg) {
     this->isAlive();
 
     if ( mDmg >= this->magicHitPoints ) {

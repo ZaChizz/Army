@@ -7,6 +7,7 @@
 #include "units/Soldier.h"
 #include "units/Rogue.h"
 #include "units/Berserker.h"
+#include "units/Vampire.h"
 #include "spellCasters/SpellCaster.h"
 
 int main() {
@@ -23,9 +24,9 @@ int main() {
     Berserker* barbarian = new Berserker ("Barbarian rogue",
                                 new NoMagicState(50,20,30),
                                 new BaseAttack());
-    Soldier* goga = new Soldier ("Goga",
+    Vampire* goga = new Vampire ("Goga",
                                  new State(40,16,20),
-                                 new BaseAttack());
+                                 new VampireAttack());
     Rogue* knight = new Rogue ("Knight",
                                new State(50,20,30),
                                new BaseAttack());
@@ -34,26 +35,26 @@ int main() {
                                     new NoMagicState(50,20,20),
                                     new BaseAttack());
 
-    std::cout << *wizard << std::endl;
+    //std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
-    std::cout << *knight << std::endl;
-    std::cout << *tuze << std::endl;
+    //std::cout << *knight << std::endl;
+    //std::cout << *tuze << std::endl;
 
     std::cout << "----Fight----" << std::endl;
 
     goga->attack(barbarian);
-    knight->attack(goga);
-    wizard->spellAttack(barbarian,"magicHit10");
-    barbarian->attack(wizard);
+    //knight->attack(goga);
+    //wizard->spellAttack(barbarian,"magicHit10");
+    //barbarian->attack(wizard);
     wizard->spellAttack(tuze,"magicHit10");
-    knight->attack(tuze);
+    //knight->attack(tuze);
 
-    std::cout << *wizard << std::endl;
+    //std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
-    std::cout << *knight << std::endl;
-    std::cout << *tuze << std::endl;
+    //std::cout << *knight << std::endl;
+    //std::cout << *tuze << std::endl;
 
     return 0;
 }

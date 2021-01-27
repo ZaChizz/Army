@@ -29,11 +29,13 @@ class State {
         int getMagicHitPoints() const;
         int getMagicHitPointsLimit() const;
 
+        void updateDamage(const int dmg);
         void setHitPoints(const int hp);
         void setMagicHitPoints(const int mHp);
+        void setMagicDamage(const int mDmg);
 
-        void setDamage(const int dmg);
-        virtual const void setMagicDamage(const int mDmg);
+        void takeDamage(const int dmg);
+        virtual const void takeMagicDamage(const int mDmg);
 };
 
 std::ostream& operator<<(std::ostream& out, const State& state);

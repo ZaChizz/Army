@@ -9,7 +9,7 @@ NoMagicState::NoMagicState(int hp, int dmg, int mHp)
 
 NoMagicState::~NoMagicState() {};
 
-const void NoMagicState::setMagicDamage(const int mDmg) {
+const void NoMagicState::takeMagicDamage(const int mDmg) {
     std::cout << "setMagicdamage" << std::endl;
 }
 

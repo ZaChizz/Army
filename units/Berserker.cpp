@@ -5,14 +5,21 @@
 #include "Berserker.h"
 
 Berserker::Berserker(const std::string& name, NoMagicState* uState, BaseAttack* uAttack)
-    :Unit(name, uAttack) {
+    :Unit(name) {
     this->uState = uState;
+    this->uAttack = uAttack;
 }
 
-Berserker::~Berserker() {}
+Berserker::~Berserker() {
+    delete(this->uState);
+}
 
 NoMagicState& Berserker::getState() {
     return *(this->uState);
+}
+
+BaseAttack& Berserker::getAttack() {
+    return *(this->uAttack);
 }
 
 std::ostream& operator<<(std::ostream& out, Berserker& berserker) {

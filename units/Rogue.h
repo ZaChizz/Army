@@ -11,11 +11,14 @@
 class Rogue : public Unit {
     private:
         State* uState;
+        BaseAttack* uAttack;
     public:
         Rogue(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Rogue();
 
         State& getState();
+
+        BaseAttack& getAttack();
 
         void attack(Unit* enemy);
 };
