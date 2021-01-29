@@ -4,12 +4,13 @@
 
 #include "State.h"
 
-State::State ( int hp, int dmg, int mHp ) {
+State::State (int hp, int dmg, int mHp, int type) {
     this->damage = dmg;
     this->hitPoints = hp;
     this->hitPointsLimit = hp;
     this->magicHitPoints = mHp;
     this->magicHitPointsLimit = mHp;
+    this->typeUnit = type;
 }
 
 State::~State() {}
@@ -38,6 +39,14 @@ int State::getHitPointsLimit() const {
 
 int State::getMagicHitPointsLimit() const {
     return this->magicHitPointsLimit;
+}
+
+int State::getTypeUnit() const {
+    return this->typeUnit;
+}
+
+void State::updateTypeUnit(const int type) {
+    this->typeUnit = type;
 }
 
 void State::updateDamage(const int dmg) {
@@ -93,6 +102,9 @@ std::ostream& operator<<(std::ostream& out, const State& state) {
         out << "HitPoints - " << state.getHitPoints() << std::endl;
         out << "MagicHitPoints - " << state.getMagicHitPoints() << std::endl;
         out << "Damage - " << state.getDamage() << std::endl;
+    }
+    if ( state.getTypeUnit() == 0 ) {
+        out << "Unit UNDEAD" << std::endl;
     }
     return out;
 }

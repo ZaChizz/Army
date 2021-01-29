@@ -23,6 +23,15 @@ enum class DMG {
     SPELLCASTER = 70
 };
 
+enum class MULTIPLE_DMG {
+    SOLDIER = 1,
+    ROGUE = 1,
+    BERSERKER = 1,
+    VAMPIRE = 2,
+    WEREWOLF = 2,
+    SPELLCASTER = 1
+};
+
 enum class MHP {
     SOLDIER = 30,
     ROGUE = 20,
@@ -37,5 +46,9 @@ enum class SPELLBOOK {
     MAGICHIT5 = 5
 };
 
+enum class TYPEUNIT {
+    UNDEAD = 0,
+    UNIT = 1,
+};
 
 #endif //ARMY_CONFIG_H

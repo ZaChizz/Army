@@ -26,7 +26,7 @@ int main() {
                                 new NoMagicState((int)HP::BERSERKER,(int)DMG::BERSERKER,(int)MHP::BERSERKER),
                                 new BaseAttack());
     Vampire* goga = new Vampire ("Goga",
-                                 new State((int)HP::VAMPIRE,(int)DMG::VAMPIRE,(int)MHP::VAMPIRE),
+                                 new State((int)HP::VAMPIRE,(int)DMG::VAMPIRE,(int)MHP::VAMPIRE,(int)TYPEUNIT::UNDEAD),
                                  new VampireAttack());
     Rogue* knight = new Rogue ("Knight",
                                new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE),

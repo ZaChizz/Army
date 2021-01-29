@@ -6,6 +6,7 @@
 #define ARMY_STATE_H
 
 #include <iostream>
+#include "../Config.h"
 
 class UnitIsDead {};
 
@@ -16,9 +17,10 @@ class State {
         int hitPointsLimit;
         int magicHitPoints;
         int magicHitPointsLimit;
+        int typeUnit;
         void isAlive();
     public:
-        State(int hp, int dmg, int mHp);
+        State(int hp, int dmg, int mHp, int type = (int)TYPEUNIT::UNIT);
         virtual ~State();
 
         int getDamage() const;
@@ -29,6 +31,9 @@ class State {
         int getMagicHitPoints() const;
         int getMagicHitPointsLimit() const;
 
+        int getTypeUnit() const;
+
+        void updateTypeUnit(const int type);
         void updateDamage(const int dmg);
         void setHitPoints(const int hp);
         void setMagicHitPoints(const int mHp);
