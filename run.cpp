@@ -3,36 +3,37 @@
 //
 
 #include <iostream>
-
+#include <typeinfo>
 #include "units/Soldier.h"
 #include "units/Rogue.h"
 #include "units/Berserker.h"
 #include "units/Vampire.h"
 #include "spellCasters/SpellCaster.h"
+#include "Config.h"
 
 int main() {
     std::map <std::string, int> book;
-    book["magicHit10"] = 10;
-    book["magicHit5"] = 5;
+    book["magicHit10"] = (int)SPELLBOOK::MAGICHIT10;
+    book["magicHit5"] = (int)SPELLBOOK::MAGICHIT5;
 
     SpellCaster* wizard = new SpellCaster ("Wizard",
-                                           new State(50,20,30),
+                                           new State((int)HP::SPELLCASTER,(int)DMG::SPELLCASTER,(int)MHP::SPELLCASTER),
                                            new BaseAttack(),
                                            new MagicAttack(),
                                            new SpellBook(book)
                                            );
     Berserker* barbarian = new Berserker ("Barbarian rogue",
-                                new NoMagicState(50,20,30),
+                                new NoMagicState((int)HP::BERSERKER,(int)DMG::BERSERKER,(int)MHP::BERSERKER),
                                 new BaseAttack());
     Vampire* goga = new Vampire ("Goga",
-                                 new State(40,16,20),
+                                 new State((int)HP::VAMPIRE,(int)DMG::VAMPIRE,(int)MHP::VAMPIRE),
                                  new VampireAttack());
     Rogue* knight = new Rogue ("Knight",
-                               new State(50,20,30),
+                               new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE),
                                new BaseAttack());
 
     Berserker* tuze = new Berserker("Tuze",
-                                    new NoMagicState(50,20,20),
+                                    new NoMagicState((int)HP::BERSERKER,(int)DMG::BERSERKER,(int)MHP::BERSERKER),
                                     new BaseAttack());
 
     //std::cout << *wizard << std::endl;
@@ -54,7 +55,7 @@ int main() {
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
     //std::cout << *knight << std::endl;
-    //std::cout << *tuze << std::endl;
+    std::cout << *tuze << std::endl;
 
     return 0;
 }

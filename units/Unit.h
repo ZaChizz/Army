@@ -18,6 +18,8 @@ class Unit {
         Unit(const std::string& name);
         ~Unit();
 
+        std::string type;
+
         virtual State& getState()=0;
 
         virtual BaseAttack& getAttack()=0;

@@ -19,7 +19,7 @@ class State {
         void isAlive();
     public:
         State(int hp, int dmg, int mHp);
-        ~State();
+        virtual ~State();
 
         int getDamage() const;
 

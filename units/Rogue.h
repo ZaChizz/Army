@@ -17,7 +17,6 @@ class Rogue : public Unit {
         ~Rogue();
 
         State& getState();
-
         BaseAttack& getAttack();
 
         void attack(Unit* enemy);

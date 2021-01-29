@@ -12,7 +12,7 @@ Vampire::Vampire(const std::string& name, State* uState, VampireAttack* uAttack)
 
 Vampire::~Vampire() {
     delete(this->uState);
-    //delete(this->uAttack);
+    delete(this->uAttack);
 }
 
 State& Vampire::getState() {

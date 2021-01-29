@@ -8,8 +8,8 @@ Soldier::Soldier(const std::string& name, State* uState, BaseAttack* uAttack)
     : Unit(name) {
     this->uState = uState;
     this->uAttack = uAttack;
-
 };
+
 Soldier::~Soldier() {
     delete(this->uState);
 };

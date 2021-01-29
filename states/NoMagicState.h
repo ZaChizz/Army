@@ -11,7 +11,7 @@
 class NoMagicState : public State {
     public:
         NoMagicState(int hp, int dmg, int mHp);
-        ~NoMagicState();
+        virtual ~NoMagicState();
 
         virtual const void takeMagicDamage(const int mDmg);
 };
