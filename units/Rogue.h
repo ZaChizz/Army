@@ -20,6 +20,7 @@ class Rogue : public Unit {
         BaseAttack& getAttack();
 
         void attack(Unit* enemy);
+        void setAttack(BaseAttack* uAttack);
 };
 
 std::ostream& operator<<(std::ostream& out, Rogue& rogue);

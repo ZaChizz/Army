@@ -22,6 +22,10 @@ BaseAttack& Soldier::getAttack() {
     return *(this->uAttack);
 }
 
+void Soldier::setAttack(BaseAttack* uAttack) {
+    this->uAttack = uAttack;
+}
+
 std::ostream& operator<<(std::ostream& out, Soldier& soldier) {
     out << soldier.getName() <<": "<< std::endl;
     out << soldier.getState() << std::endl;

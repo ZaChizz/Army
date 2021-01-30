@@ -37,6 +37,8 @@ class SpellCaster : public Unit {
 
         BaseAttack& getAttack();
 
+        void setAttack(BaseAttack* uAttack);
+
         SpellBook& getSpellBook() const;
 
         void spellAttack(Unit* enemy, const std::string& spellName);

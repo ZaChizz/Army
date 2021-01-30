@@ -4,7 +4,7 @@
 
 #include "Vampire.h"
 
-Vampire::Vampire(const std::string& name, State* uState, VampireAttack* uAttack)
+Vampire::Vampire(const std::string& name, State* uState, BaseAttack* uAttack)
         : Unit(name) {
         this->uState = uState;
         this->uAttack = uAttack;
@@ -19,8 +19,12 @@ State& Vampire::getState() {
     return *(this->uState);
 }
 
-VampireAttack& Vampire::getAttack() {
+BaseAttack& Vampire::getAttack() {
     return *(this->uAttack);
+}
+
+void Vampire::setAttack(BaseAttack* uAttack) {
+    this->uAttack = uAttack;
 }
 
 std::ostream& operator<<(std::ostream& out, Vampire& vampire) {

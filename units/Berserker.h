@@ -11,15 +11,16 @@
 
 class Berserker : public Unit {
     private:
-        NoMagicState* uState;
+        State* uState;
         BaseAttack* uAttack;
     public:
-        Berserker(const std::string& name, NoMagicState* uState, BaseAttack* uAttack);
+        Berserker(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Berserker();
 
-        NoMagicState& getState();
+        State& getState();
         BaseAttack& getAttack();
 
+        void setAttack(BaseAttack* uAttack);
 };
 
 std::ostream& operator<<(std::ostream& out, Berserker& berserker);

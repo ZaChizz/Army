@@ -14,13 +14,15 @@ class VampireAttack;
 class Vampire : public Unit {
     private:
         State* uState;
-        VampireAttack* uAttack;
+        BaseAttack* uAttack;
     public:
-        Vampire(const std::string& name, State* uState, VampireAttack* uAttack);
+        Vampire(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Vampire();
 
         State& getState();
-        VampireAttack& getAttack();
+        BaseAttack& getAttack();
+
+        void setAttack(BaseAttack* uAttack);
 };
 
 std::ostream& operator<<(std::ostream& out, Vampire& vampire);

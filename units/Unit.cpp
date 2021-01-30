@@ -17,7 +17,7 @@ const std::string& Unit::getName() const {
 void Unit::attack(Unit* enemy) {
     this->getAttack().attack(this, enemy);
     this->getAttack().counterAttack(this, enemy);
-    }
+}
 
 std::ostream& operator<<(std::ostream& out, Unit& unit) {
     out << unit.getName() <<":"<< std::endl;

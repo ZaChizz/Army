@@ -10,7 +10,7 @@
 
 class NoMagicState : public State {
     public:
-        NoMagicState(int hp, int dmg, int mHp);
+        NoMagicState(int hp, int dmg, int mHp, int type = (int)TYPEUNIT::UNIT);
         virtual ~NoMagicState();
 
         virtual const void takeMagicDamage(const int mDmg);

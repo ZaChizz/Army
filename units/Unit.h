@@ -16,13 +16,15 @@ class Unit {
         std::string name;
     public:
         Unit(const std::string& name);
-        ~Unit();
+        virtual ~Unit();
 
         std::string type;
 
         virtual State& getState()=0;
 
         virtual BaseAttack& getAttack()=0;
+
+        virtual void setAttack(BaseAttack* uAttack)=0;
 
         void attack(Unit* enemy);
 

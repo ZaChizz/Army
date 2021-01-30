@@ -25,6 +25,10 @@ void Rogue::attack(Unit* enemy) {
     this->getAttack().attack(this, enemy);
 }
 
+void Rogue::setAttack(BaseAttack* uAttack) {
+    this->uAttack = uAttack;
+}
+
 std::ostream& operator<<(std::ostream& out, Rogue& rogue) {
     out << rogue.getName() <<": "<< std::endl;
     out << rogue.getState() << std::endl;

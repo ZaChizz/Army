@@ -22,8 +22,8 @@ int main() {
                                            new MagicAttack(),
                                            new SpellBook(book)
                                            );
-    Berserker* barbarian = new Berserker ("Barbarian rogue",
-                                new NoMagicState((int)HP::BERSERKER,(int)DMG::BERSERKER,(int)MHP::BERSERKER),
+    Berserker* barbarian = new Berserker ("Barbarian berserker",
+                                new NoMagicState((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
                                 new BaseAttack());
     Vampire* goga = new Vampire ("Goga",
                                  new State((int)HP::VAMPIRE,(int)DMG::VAMPIRE,(int)MHP::VAMPIRE,(int)TYPEUNIT::UNDEAD),
@@ -47,14 +47,15 @@ int main() {
     goga->attack(barbarian);
     //knight->attack(goga);
     //wizard->spellAttack(barbarian,"magicHit10");
-    //barbarian->attack(wizard);
+    barbarian->attack(knight);
     wizard->spellAttack(tuze,"magicHit10");
+    wizard->spellAttack(barbarian,"magicHit10");
     //knight->attack(tuze);
 
     //std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
-    //std::cout << *knight << std::endl;
+    std::cout << *knight << std::endl;
     std::cout << *tuze << std::endl;
 
     return 0;

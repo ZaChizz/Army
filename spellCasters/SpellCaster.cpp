@@ -36,6 +36,10 @@ SpellBook& SpellCaster::getSpellBook() const {
     return *(this->sBook);
 }
 
+void SpellCaster::setAttack(BaseAttack* uAttack) {
+    this->uAttack = uAttack;
+}
+
 void SpellCaster::spellAttack(Unit* enemy, const std::string& spellName) {
     int mDmg = this->getSpellBook().getSpell(spellName);
     this->mAttack->attack(this, enemy, mDmg);

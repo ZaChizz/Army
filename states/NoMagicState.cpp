@@ -4,8 +4,8 @@
 
 #include "NoMagicState.h"
 
-NoMagicState::NoMagicState(int hp, int dmg, int mHp)
-    :State(hp, dmg, mHp) {};
+NoMagicState::NoMagicState(int hp, int dmg, int mHp, int type )
+    :State(hp, dmg, mHp, type) {};
 
 NoMagicState::~NoMagicState() {};
 

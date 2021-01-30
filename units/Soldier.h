@@ -18,6 +18,7 @@ class Soldier : public Unit {
 
         State& getState();
         BaseAttack& getAttack();
+        void setAttack(BaseAttack* uAttack);
 };
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier);
