@@ -37,6 +37,7 @@ SpellBook& SpellCaster::getSpellBook() const {
 }
 
 void SpellCaster::setAttack(BaseAttack* uAttack) {
+    delete(this->uAttack);
     this->uAttack = uAttack;
 }
 
