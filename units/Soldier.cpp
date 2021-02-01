@@ -12,6 +12,7 @@ Soldier::Soldier(const std::string& name, State* uState, BaseAttack* uAttack)
 
 Soldier::~Soldier() {
     delete(this->uState);
+    delete(this->uAttack);
 };
 
 State& Soldier::getState() {
@@ -23,6 +24,7 @@ BaseAttack& Soldier::getAttack() {
 }
 
 void Soldier::setAttack(BaseAttack* uAttack) {
+    delete(this->uAttack);
     this->uAttack = uAttack;
 }
 

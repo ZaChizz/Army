@@ -58,6 +58,12 @@ int main() {
     std::cout << *knight << std::endl;
     std::cout << *tuze << std::endl;
 
+    delete(barbarian);
+    delete(goga);
+    delete(knight);
+    delete(tuze);
+    delete(wizard);
+
     return 0;
 }
 
