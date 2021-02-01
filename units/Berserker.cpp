@@ -23,6 +23,7 @@ BaseAttack& Berserker::getAttack() {
 }
 
 void Berserker::setAttack(BaseAttack* uAttack) {
+    delete(this->uAttack);
     this->uAttack = uAttack;
 }
 

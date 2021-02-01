@@ -24,6 +24,7 @@ BaseAttack& Vampire::getAttack() {
 }
 
 void Vampire::setAttack(BaseAttack* uAttack) {
+    delete(this->uAttack);
     this->uAttack = uAttack;
 }
 

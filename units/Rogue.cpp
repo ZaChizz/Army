@@ -26,6 +26,7 @@ void Rogue::attack(Unit* enemy) {
 }
 
 void Rogue::setAttack(BaseAttack* uAttack) {
+    delete(this->uAttack);
     this->uAttack = uAttack;
 }
 
