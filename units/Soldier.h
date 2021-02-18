@@ -12,13 +12,19 @@ class Soldier : public Unit {
     private:
         State* uState;
         BaseAttack* uAttack;
+        ITransformState* uMultiState;
     public:
         Soldier(const std::string& name, State* uState, BaseAttack* uAttack);
         ~Soldier();
 
         State& getState();
         BaseAttack& getAttack();
+        State* getStateP();
+        ITransformState* getMultiState();
+
+        void setState(State* uState);
         void setAttack(BaseAttack* uAttack);
+        void setMultiState(ITransformState* transformState);
 };
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier);

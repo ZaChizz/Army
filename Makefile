@@ -3,8 +3,10 @@ compile:
 	g++ -std=c++20 attacks/MagicAttack.cpp -c
 	g++ -std=c++20 attacks/VampireAttack.cpp -c
 	g++ -std=c++20 spellBook/SpellBook.cpp -c
+	g++ -std=c++20 states/interfaces/ITransformState.cpp -c
 	g++ -std=c++20 states/State.cpp -c
 	g++ -std=c++20 states/NoMagicState.cpp -c
+	g++ -std=c++20 states/TransformState.cpp -c
 	g++ -std=c++20 units/Unit.cpp -c
 	g++ -std=c++20 units/Soldier.cpp -c
 	g++ -std=c++20 units/Rogue.cpp -c

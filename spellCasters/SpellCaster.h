@@ -23,6 +23,7 @@ class SpellCaster : public Unit {
         SpellBook* sBook;
         State* uState;
         BaseAttack* uAttack;
+        ITransformState* uMultiState;
     public:
         MagicAttack* mAttack;
 
@@ -37,7 +38,14 @@ class SpellCaster : public Unit {
 
         BaseAttack& getAttack();
 
+        State* getStateP();
+        ITransformState* getMultiState();
+
+        void setState(State* uState);
+
         void setAttack(BaseAttack* uAttack);
+
+        void setMultiState(ITransformState* transformState);
 
         SpellBook& getSpellBook() const;
 

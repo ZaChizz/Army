@@ -14,6 +14,7 @@ const std::string& Unit::getName() const {
     return this->name;
 }
 
+
 void Unit::attack(Unit* enemy) {
     this->getAttack().attack(this, enemy);
     this->getAttack().counterAttack(this, enemy);

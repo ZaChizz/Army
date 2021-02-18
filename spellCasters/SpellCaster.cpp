@@ -11,6 +11,7 @@ SpellCaster::SpellCaster(const std::string& name,
                          MagicAttack* mAttack,
                          SpellBook* sBook)
     :Unit(name) {
+    this->uMultiState = nullptr;
     this->mAttack = mAttack;
     this->uAttack = uAttack;
     this->sBook = sBook;
@@ -22,10 +23,17 @@ SpellCaster::~SpellCaster() {
     delete(this->uAttack);
     delete(this->uState);
     delete(this->sBook);
+    if(this->uMultiState != nullptr) {
+        delete(this->uMultiState);
+    }
 }
 
 State& SpellCaster::getState() {
     return *(this->uState);
+}
+
+State* SpellCaster::getStateP() {
+    return this->uState;
 }
 
 BaseAttack& SpellCaster::getAttack() {
@@ -36,9 +44,21 @@ SpellBook& SpellCaster::getSpellBook() const {
     return *(this->sBook);
 }
 
+ITransformState* SpellCaster::getMultiState() {
+    return this->uMultiState;
+}
+
+void SpellCaster::setState(State* uState) {
+    this->uState = uState;
+}
+
 void SpellCaster::setAttack(BaseAttack* uAttack) {
     delete(this->uAttack);
     this->uAttack = uAttack;
+}
+
+void SpellCaster::setMultiState(ITransformState* transformState) {
+    this->uMultiState = transformState;
 }
 
 void SpellCaster::spellAttack(Unit* enemy, const std::string& spellName) {

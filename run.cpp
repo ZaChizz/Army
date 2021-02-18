@@ -25,9 +25,11 @@ int main() {
     Berserker* barbarian = new Berserker ("Barbarian berserker",
                                 new NoMagicState((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
                                 new BaseAttack());
+
     Vampire* goga = new Vampire ("Goga",
                                  new State((int)HP::VAMPIRE,(int)DMG::VAMPIRE,(int)MHP::VAMPIRE,(int)TYPEUNIT::UNDEAD),
                                  new VampireAttack());
+
     Rogue* knight = new Rogue ("Knight",
                                new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE),
                                new BaseAttack());
@@ -36,9 +38,18 @@ int main() {
                                     new NoMagicState((int)HP::BERSERKER,(int)DMG::BERSERKER,(int)MHP::BERSERKER),
                                     new BaseAttack());
 
+    Soldier* vasy = new Soldier("Vasy",
+                                new State((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
+                                new BaseAttack());
+
+    ITransformState* multiState = new TransformState(vasy,new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE));
+
+    vasy->setMultiState(multiState);
+
     //std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
+    std::cout << *vasy << std::endl;
     //std::cout << *knight << std::endl;
     //std::cout << *tuze << std::endl;
 
@@ -51,12 +62,14 @@ int main() {
     wizard->spellAttack(tuze,"magicHit10");
     wizard->spellAttack(barbarian,"magicHit10");
     //knight->attack(tuze);
+    vasy->getMultiState()->transform();
 
     //std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
     std::cout << *knight << std::endl;
     std::cout << *tuze << std::endl;
+    std::cout << *vasy << std::endl;
 
     delete(barbarian);
     delete(goga);
