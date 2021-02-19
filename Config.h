@@ -7,7 +7,7 @@
 
 enum class HP {
     SOLDIER = 100,
-    ROGUE = 50,
+    ROGUE = 85,
     BERSERKER = 90,
     VAMPIRE = 70,
     WEREWOLF = 60,
@@ -16,7 +16,7 @@ enum class HP {
 
 enum class DMG {
     SOLDIER = 20,
-    ROGUE = 50,
+    ROGUE = 30,
     BERSERKER = 30,
     VAMPIRE = 35,
     WEREWOLF = 25,
@@ -32,9 +32,15 @@ enum class MULTIPLE_DMG {
     SPELLCASTER = 1
 };
 
+enum class SWITCH {
+    WOLF_HP = 1,
+    WOLF_DMG = 10,
+    WOLF_MHP = 3
+};
+
 enum class MHP {
     SOLDIER = 30,
-    ROGUE = 50,
+    ROGUE = 20,
     BERSERKER = 40,
     VAMPIRE = 35,
     WEREWOLF = 40,
@@ -48,7 +54,7 @@ enum class SPELLBOOK {
 
 enum class TYPEUNIT {
     UNDEAD = 0,
-    UNIT = 1,
+    UNIT = 1
 };
 
 #endif //ARMY_CONFIG_H

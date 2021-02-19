@@ -4,52 +4,15 @@
 
 #include "Vampire.h"
 
-Vampire::Vampire(const std::string& name, State* uState, BaseAttack* uAttack)
-        : Unit(name) {
-        this->uMultiState = nullptr;
-        this->uState = uState;
-        this->uAttack = uAttack;
+Vampire::Vampire(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form)
+        : Soldier(name, uState, uAttack, form) {
 }
 
-Vampire::~Vampire() {
-    delete(this->uState);
-    delete(this->uAttack);
-    if(this->uMultiState != nullptr) {
-        delete(this->uMultiState);
-    }
-}
-
-State& Vampire::getState() {
-    return *(this->uState);
-}
-
-State* Vampire::getStateP() {
-    return this->uState;
-}
-
-BaseAttack& Vampire::getAttack() {
-    return *(this->uAttack);
-}
-
-ITransformState* Vampire::getMultiState() {
-    return this->uMultiState;
-}
-
-void Vampire::setState(State* uState) {
-    this->uState = uState;
-}
-
-void Vampire::setAttack(BaseAttack* uAttack) {
-    delete(this->uAttack);
-    this->uAttack = uAttack;
-}
-
-void Vampire::setMultiState(ITransformState* transformState) {
-    this->uMultiState = transformState;
-}
+Vampire::~Vampire() {}
 
 std::ostream& operator<<(std::ostream& out, Vampire& vampire) {
-    out << vampire.getName() <<": "<< std::endl;
+    out << vampire.getName() << " - " << std::endl;
+    out << vampire.getForm() << ": " <<std::endl;
     out << vampire.getState() << std::endl;
 
     return out;

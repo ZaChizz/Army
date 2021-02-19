@@ -14,13 +14,13 @@
 class BaseAttack;
 
 class Unit {
-    private:
-        std::string name;
     public:
-        Unit(const std::string& name);
+        Unit();
         virtual ~Unit();
 
-        std::string type;
+        virtual std::string& getName()=0;
+
+        virtual std::string& getForm()=0;
 
         virtual State& getState()=0;
 
@@ -36,9 +36,7 @@ class Unit {
 
         virtual void setMultiState(ITransformState* iTransformState)=0;
 
-        void attack(Unit* enemy);
-
-        const std::string& getName() const;
+        virtual void attack(Unit* enemy)=0;
 
 };
 

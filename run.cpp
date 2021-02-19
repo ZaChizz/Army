@@ -22,7 +22,7 @@ int main() {
                                            new MagicAttack(),
                                            new SpellBook(book)
                                            );
-    Berserker* barbarian = new Berserker ("Barbarian berserker",
+    Berserker* barbarian = new Berserker ("Barbarian",
                                 new NoMagicState((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
                                 new BaseAttack());
 
@@ -57,10 +57,10 @@ int main() {
 
     goga->attack(barbarian);
     //knight->attack(goga);
-    //wizard->spellAttack(barbarian,"magicHit10");
-    barbarian->attack(knight);
-    wizard->spellAttack(tuze,"magicHit10");
     wizard->spellAttack(barbarian,"magicHit10");
+    //barbarian->attack(knight);
+    //wizard->spellAttack(tuze,"magicHit10");
+    //wizard->spellAttack(barbarian,"magicHit10");
     //knight->attack(tuze);
     vasy->getMultiState()->transform();
 

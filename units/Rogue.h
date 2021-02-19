@@ -7,25 +7,15 @@
 
 #include <iostream>
 #include "Unit.h"
+#include "Soldier.h"
 
-class Rogue : public Unit {
-    private:
-        State* uState;
-        BaseAttack* uAttack;
-        ITransformState* uMultiState;
+class Rogue : public Soldier {
     public:
-        Rogue(const std::string& name, State* uState, BaseAttack* uAttack);
+        Rogue(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form ="Rogue");
         ~Rogue();
 
-        State& getState();
-        BaseAttack& getAttack();
-        State* getStateP();
-        ITransformState* getMultiState();
-
-        void setState(State* uState);
         void attack(Unit* enemy);
-        void setAttack(BaseAttack* uAttack);
-        void setMultiState(ITransformState* transformState);
+
 };
 
 std::ostream& operator<<(std::ostream& out, Rogue& rogue);

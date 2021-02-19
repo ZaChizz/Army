@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "../units/Unit.h"
-
+#include "../units/Soldier.h"
 #include "../states/State.h"
 
 #include "../attacks/BaseAttack.h"
@@ -18,12 +18,9 @@
 class MagicAttack;
 class BaseAttack;
 
-class SpellCaster : public Unit {
-    private:
+class SpellCaster : public Soldier {
+    protected:
         SpellBook* sBook;
-        State* uState;
-        BaseAttack* uAttack;
-        ITransformState* uMultiState;
     public:
         MagicAttack* mAttack;
 
@@ -31,21 +28,9 @@ class SpellCaster : public Unit {
                     State* uState,
                     BaseAttack* uAttack,
                     MagicAttack* mAttack,
-                    SpellBook* sBook);
+                    SpellBook* sBook,
+                    const std::string& form ="SpellCaster");
         ~SpellCaster();
-
-        State& getState();
-
-        BaseAttack& getAttack();
-
-        State* getStateP();
-        ITransformState* getMultiState();
-
-        void setState(State* uState);
-
-        void setAttack(BaseAttack* uAttack);
-
-        void setMultiState(ITransformState* transformState);
 
         SpellBook& getSpellBook() const;
 

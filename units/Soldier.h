@@ -9,22 +9,29 @@
 #include "Unit.h"
 
 class Soldier : public Unit {
-    private:
+    protected:
+        std::string name;
         State* uState;
         BaseAttack* uAttack;
         ITransformState* uMultiState;
     public:
-        Soldier(const std::string& name, State* uState, BaseAttack* uAttack);
-        ~Soldier();
+        Soldier(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form = "Soldier");
+        virtual ~Soldier();
 
-        State& getState();
-        BaseAttack& getAttack();
-        State* getStateP();
-        ITransformState* getMultiState();
+        void attack(Unit* enemy);
 
-        void setState(State* uState);
-        void setAttack(BaseAttack* uAttack);
-        void setMultiState(ITransformState* transformState);
+        virtual std::string& getName();
+        virtual std::string& getForm();
+        virtual State& getState();
+        virtual BaseAttack& getAttack();
+        virtual State* getStateP();
+        virtual ITransformState* getMultiState();
+
+        virtual void setState(State* uState);
+        virtual void setAttack(BaseAttack* uAttack);
+        virtual void setMultiState(ITransformState* uMultiState);
+
+        std::string form;
 };
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier);

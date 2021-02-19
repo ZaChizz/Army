@@ -4,24 +4,12 @@
 
 #include "Unit.h"
 
-Unit::Unit(const std::string& name) {
-    this->name = name;
-}
-
+Unit::Unit() {}
 Unit::~Unit() {}
 
-const std::string& Unit::getName() const {
-    return this->name;
-}
-
-
-void Unit::attack(Unit* enemy) {
-    this->getAttack().attack(this, enemy);
-    this->getAttack().counterAttack(this, enemy);
-}
-
 std::ostream& operator<<(std::ostream& out, Unit& unit) {
-    out << unit.getName() <<":"<< std::endl;
+    out << unit.getName() << " - " << std::endl;
+    out << unit.getForm() << ": " <<std::endl;
     out << unit.getState() << std::endl;
 
     return out;

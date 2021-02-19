@@ -7,28 +7,15 @@
 
 #include <iostream>
 #include "Unit.h"
+#include "Soldier.h"
 #include "../attacks/VampireAttack.h"
 
 class VampireAttack;
 
-class Vampire : public Unit {
-    private:
-        State* uState;
-        BaseAttack* uAttack;
-        ITransformState* uMultiState;
-
+class Vampire : public Soldier {
     public:
-        Vampire(const std::string& name, State* uState, BaseAttack* uAttack);
+        Vampire(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form = "Vampire");
         ~Vampire();
-
-        State& getState();
-        BaseAttack& getAttack();
-        State* getStateP();
-        ITransformState* getMultiState();
-
-        void setState(State* uState);
-        void setAttack(BaseAttack* uAttack);
-        void setMultiState(ITransformState* transformState);
 };
 
 std::ostream& operator<<(std::ostream& out, Vampire& vampire);
