@@ -6,14 +6,13 @@
 #define ARMY_UNIT_H
 
 #include <iostream>
-#include "../states/State.h"
-#include "../states/interfaces/ITransformState.h"
-#include "../states/TransformState.h"
+#include "../states/interfaces/IUnitState.h"
+#include "../states/interfaces/IUnitTransformState.h"
 #include "../attacks/BaseAttack.h"
 
 class BaseAttack;
 
-class Unit {
+class Unit : public IUnitState, public IUnitTransformState {
     public:
         Unit();
         virtual ~Unit();
@@ -22,19 +21,9 @@ class Unit {
 
         virtual std::string& getForm()=0;
 
-        virtual State& getState()=0;
-
         virtual BaseAttack& getAttack()=0;
 
-        virtual State* getStateP()=0;
-
-        virtual ITransformState* getMultiState()=0;
-
         virtual void setAttack(BaseAttack* uAttack)=0;
-
-        virtual void setState(State* uState)=0;
-
-        virtual void setMultiState(ITransformState* iTransformState)=0;
 
         virtual void attack(Unit* enemy)=0;
 

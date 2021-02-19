@@ -9,6 +9,7 @@
 #include "units/Berserker.h"
 #include "units/Vampire.h"
 #include "spellCasters/SpellCaster.h"
+#include "states/TransformState.h"
 #include "Config.h"
 
 int main() {
@@ -46,25 +47,25 @@ int main() {
 
     vasy->setMultiState(multiState);
 
-    //std::cout << *wizard << std::endl;
+    std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
     std::cout << *vasy << std::endl;
-    //std::cout << *knight << std::endl;
-    //std::cout << *tuze << std::endl;
+    std::cout << *knight << std::endl;
+    std::cout << *tuze << std::endl;
 
     std::cout << "----Fight----" << std::endl;
 
     goga->attack(barbarian);
-    //knight->attack(goga);
+    knight->attack(goga);
     wizard->spellAttack(barbarian,"magicHit10");
-    //barbarian->attack(knight);
-    //wizard->spellAttack(tuze,"magicHit10");
-    //wizard->spellAttack(barbarian,"magicHit10");
-    //knight->attack(tuze);
+    barbarian->attack(knight);
+    wizard->spellAttack(tuze,"magicHit10");
+    wizard->spellAttack(barbarian,"magicHit10");
+    knight->attack(tuze);
     vasy->getMultiState()->transform();
 
-    //std::cout << *wizard << std::endl;
+    std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
     std::cout << *knight << std::endl;

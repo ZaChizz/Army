@@ -15,8 +15,7 @@ void Rogue::attack(Unit* enemy) {
 }
 
 std::ostream& operator<<(std::ostream& out, Rogue& rogue) {
-    out << rogue.getName() << " - " << std::endl;
-    out << rogue.getForm() << ": " <<std::endl;
+    out << rogue.getName() << " - " << rogue.getForm() << ": " <<std::endl;
     out << rogue.getState() << std::endl;
 
     return out;

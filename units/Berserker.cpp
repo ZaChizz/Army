@@ -11,8 +11,7 @@ Berserker::Berserker(const std::string& name, State* uState, BaseAttack* uAttack
 Berserker::~Berserker() {}
 
 std::ostream& operator<<(std::ostream& out, Berserker& berserker) {
-    out << berserker.getName() << " - " << std::endl;
-    out << berserker.getForm() << ": " <<std::endl;
+    out << berserker.getName() << " - " << berserker.getForm() << ": " <<std::endl;
     out << berserker.getState() << std::endl;
 
     return out;

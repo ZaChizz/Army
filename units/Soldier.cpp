@@ -64,8 +64,7 @@ void Soldier::attack(Unit* enemy) {
 }
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier) {
-    out << soldier.getName() << " - " << std::endl;
-    out << soldier.getForm() << ": " <<std::endl;
+    out << soldier.getName() << " - " << soldier.getForm() << ": " <<std::endl;
     out << soldier.getState() << std::endl;
 
     return out;

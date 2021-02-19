@@ -11,8 +11,7 @@ Vampire::Vampire(const std::string& name, State* uState, BaseAttack* uAttack, co
 Vampire::~Vampire() {}
 
 std::ostream& operator<<(std::ostream& out, Vampire& vampire) {
-    out << vampire.getName() << " - " << std::endl;
-    out << vampire.getForm() << ": " <<std::endl;
+    out << vampire.getName() << " - " << vampire.getForm() << ": " <<std::endl;
     out << vampire.getState() << std::endl;
 
     return out;

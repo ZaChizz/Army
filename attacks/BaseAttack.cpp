@@ -4,8 +4,8 @@
 
 #include "BaseAttack.h"
 
-BaseAttack::BaseAttack() {};
-BaseAttack::~BaseAttack() {};
+BaseAttack::BaseAttack() {}
+BaseAttack::~BaseAttack() {}
 
 const void BaseAttack::attack(Unit* attacker, Unit* enemy) {
     enemy->getState().takeDamage(attacker->getState().getDamage());
