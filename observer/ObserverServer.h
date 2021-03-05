@@ -20,8 +20,9 @@ class ObserverServer : public IObserverServer {
 
         virtual void attach(Unit* observer);
         virtual void detach(Unit* observer);
+        virtual void clear();
 
-        virtual std::map<std::string,Unit*>& getSet();
+        virtual std::map<std::string,Unit*>& getList();
 
 };
 

@@ -47,6 +47,8 @@ class Soldier : public Unit {
 
         virtual void onEventAction();
 
+        virtual void gestalt();
+
 
         std::string form;
 };

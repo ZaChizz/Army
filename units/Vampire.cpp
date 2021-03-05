@@ -13,6 +13,6 @@ Vampire::~Vampire() {}
 std::ostream& operator<<(std::ostream& out, Vampire& vampire) {
     out << vampire.getName() << " - " << vampire.getForm() << ": " <<std::endl;
     out << vampire.getState() << std::endl;
-
+    out << vampire.getObserverRef() << std::endl;
     return out;
 }

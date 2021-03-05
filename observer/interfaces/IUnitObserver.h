@@ -14,6 +14,7 @@ class IUnitObserver {
 
         virtual IObserverServer* getObserver()=0;
         virtual IObserverServer& getObserverRef()=0;
+        virtual void onEventAction()=0;
 };
 
 #endif //ARMY_IUNIT_OBSERVER_H

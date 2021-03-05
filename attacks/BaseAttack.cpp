@@ -9,8 +9,10 @@ BaseAttack::~BaseAttack() {}
 
 const void BaseAttack::attack(Unit* attacker, Unit* enemy) {
     enemy->getState().takeDamage(attacker->getState().getDamage());
+    enemy->onEventAction();
 }
 
 const void BaseAttack::counterAttack(Unit* attacker, Unit* enemy) {
     attacker->getState().takeDamage(enemy->getState().getDamage() / 2);
+    enemy->onEventAction();
 }

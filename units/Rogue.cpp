@@ -12,6 +12,7 @@ Rogue::~Rogue() {}
 
 void Rogue::attack(Unit* enemy) {
     this->getAttack().attack(this, enemy);
+    enemy->onEventAction();
 }
 
 std::ostream& operator<<(std::ostream& out, Rogue& rogue) {

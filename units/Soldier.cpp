@@ -79,8 +79,21 @@ void Soldier::attack(Unit* enemy) {
     this->getAttack().counterAttack(this, enemy);
 }
 
-void Soldier::onEventAction() {
+void Soldier::gestalt() {
 
+    auto m = this->getObserver()->getList();
+
+    for (const auto& [unit, ptr] : m) {
+        ptr->getState().setHitPoints(this->getState().getHitPointsLimit()/3);
+        ptr->getState().setMagicHitPoints(this->getState().getMagicHitPointsLimit()/3);
+    }
+    this->getObserver()->clear();
+}
+
+void Soldier::onEventAction() {
+    if ( this->getState().getDead() ) {
+        this->gestalt();
+    }
 }
 
 std::ostream& operator<<(std::ostream& out, Soldier& soldier) {

@@ -4,20 +4,23 @@
 
 #include "State.h"
 
-State::State (int hp, int dmg, int mHp, int type) {
+State::State (int hp, int dmg, int mHp, int type){
     this->damage = dmg;
     this->hitPoints = hp;
     this->hitPointsLimit = hp;
     this->magicHitPoints = mHp;
     this->magicHitPointsLimit = mHp;
     this->typeUnit = type;
+    this->dead = false;
 }
 
 State::~State() {}
 
 void State::isAlive() {
     if ( this->hitPoints == 0 || this->magicHitPoints == 0 ) {
-        throw UnitIsDead();
+        this->dead = true;
+        return;
+        //throw new UnitIsDead("I ma dead!");
     }
 }
 
@@ -43,6 +46,10 @@ int State::getMagicHitPointsLimit() const {
 
 int State::getTypeUnit() const {
     return this->typeUnit;
+}
+
+bool State::getDead() const {
+    return this->dead;
 }
 
 void State::updateTypeUnit(const int type) {

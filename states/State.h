@@ -7,8 +7,9 @@
 
 #include <iostream>
 #include "../Config.h"
+#include "UnitIsDead.h"
 
-class UnitIsDead {};
+class Unit;
 
 class State {
     private:
@@ -19,6 +20,7 @@ class State {
         int magicHitPointsLimit;
         int typeUnit;
         void isAlive();
+        bool dead;
     public:
         State(int hp, int dmg, int mHp, int type = (int)TYPEUNIT::UNIT);
         virtual ~State();
@@ -32,6 +34,7 @@ class State {
         int getMagicHitPointsLimit() const;
 
         int getTypeUnit() const;
+        bool getDead() const;
 
         void updateTypeUnit(const int type);
         void updateDamage(const int dmg);

@@ -33,6 +33,7 @@ void SpellCaster::spellAttack(Unit* enemy, const std::string& spellName) {
 std::ostream& operator<<(std::ostream& out, SpellCaster& spellCaster) {
     out << spellCaster.getName() << " - " << spellCaster.getForm() << ": " <<std::endl;
     out << spellCaster.getState() << std::endl;
+    out << spellCaster.getObserverRef() << std::endl;
 
     return out;
 }
