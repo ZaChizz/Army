@@ -8,11 +8,13 @@
 #include <iostream>
 #include "../states/interfaces/IUnitState.h"
 #include "../states/interfaces/IUnitTransformState.h"
+#include "../observer/interfaces/IUnitObserver.h"
+#include "../observer/interfaces/IUnitObserverClient.h"
 #include "../attacks/BaseAttack.h"
 
 class BaseAttack;
 
-class Unit : public IUnitState, public IUnitTransformState {
+class Unit : public IUnitState, public IUnitTransformState, public IUnitObserver, public IUnitObserverClient {
     public:
         Unit();
         virtual ~Unit();
@@ -28,7 +30,5 @@ class Unit : public IUnitState, public IUnitTransformState {
         virtual void attack(Unit* enemy)=0;
 
 };
-
-std::ostream& operator<<(std::ostream& out, Unit& unit);
 
 #endif //ARMY_UNIT_H

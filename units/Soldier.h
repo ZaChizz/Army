@@ -7,6 +7,10 @@
 
 #include <iostream>
 #include "Unit.h"
+#include "../observer/interfaces/IObserverServer.h"
+#include "../observer/interfaces/IObserverClient.h"
+#include "../observer/ObserverServer.h"
+#include "../observer/ObserverClient.h"
 
 class Soldier : public Unit {
     protected:
@@ -14,6 +18,9 @@ class Soldier : public Unit {
         State* uState;
         BaseAttack* uAttack;
         ITransformState* uMultiState;
+        IObserverClient* uObserverClient;
+        ObserverServer* uObserverServer;
+
     public:
         Soldier(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form = "Soldier");
         virtual ~Soldier();
@@ -22,14 +29,24 @@ class Soldier : public Unit {
 
         virtual std::string& getName();
         virtual std::string& getForm();
-        virtual State& getState();
+
         virtual BaseAttack& getAttack();
+
+        virtual State& getState();
         virtual State* getStateP();
         virtual ITransformState* getMultiState();
 
         virtual void setState(State* uState);
         virtual void setAttack(BaseAttack* uAttack);
         virtual void setMultiState(ITransformState* uMultiState);
+
+        virtual IObserverServer* getObserver();
+        virtual IObserverClient* getObserverClient();
+
+        virtual ObserverServer& getObserverRef();
+
+        virtual void onEventAction();
+
 
         std::string form;
 };

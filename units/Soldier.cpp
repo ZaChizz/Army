@@ -10,12 +10,16 @@ Soldier::Soldier(const std::string& name, State* uState, BaseAttack* uAttack, co
     this->name = name;
     this->uState = uState;
     this->uAttack = uAttack;
+    this->uObserverServer = new ObserverServer();
+    this->uObserverClient = new ObserverClient();
     this->form = form;
 }
 
 Soldier::~Soldier() {
     delete(this->uState);
     delete(this->uAttack);
+    delete(this->uObserverServer);
+    delete(this->uObserverClient);
     if(this->uMultiState != nullptr) {
         delete(this->uMultiState);
     }
@@ -45,6 +49,18 @@ ITransformState* Soldier::getMultiState() {
     return this->uMultiState;
 }
 
+IObserverServer* Soldier::getObserver() {
+    return this->uObserverServer;
+}
+
+ObserverServer& Soldier::getObserverRef() {
+    return *(this->uObserverServer);
+}
+
+IObserverClient* Soldier::getObserverClient() {
+    return this->uObserverClient;
+}
+
 void Soldier::setAttack(BaseAttack* uAttack) {
     delete(this->uAttack);
     this->uAttack = uAttack;
@@ -63,9 +79,13 @@ void Soldier::attack(Unit* enemy) {
     this->getAttack().counterAttack(this, enemy);
 }
 
+void Soldier::onEventAction() {
+
+}
+
 std::ostream& operator<<(std::ostream& out, Soldier& soldier) {
     out << soldier.getName() << " - " << soldier.getForm() << ": " <<std::endl;
     out << soldier.getState() << std::endl;
-
+    out << soldier.getObserverRef() << std::endl;
     return out;
 }

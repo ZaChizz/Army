@@ -1,4 +1,10 @@
 compile:
+	g++ -std=c++20 observer/interfaces/IObserverClient.cpp -c
+	g++ -std=c++20 observer/interfaces/IObserverServer.cpp -c
+	g++ -std=c++20 observer/interfaces/IUnitObserver.cpp -c
+	g++ -std=c++20 observer/interfaces/IUnitObserverClient.cpp -c
+	g++ -std=c++20 observer/ObserverClient.cpp -c
+	g++ -std=c++20 observer/ObserverServer.cpp -c
 	g++ -std=c++20 attacks/BaseAttack.cpp -c
 	g++ -std=c++20 attacks/MagicAttack.cpp -c
 	g++ -std=c++20 attacks/VampireAttack.cpp -c

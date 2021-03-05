@@ -54,6 +54,12 @@ int main() {
     std::cout << *knight << std::endl;
     std::cout << *tuze << std::endl;
 
+    tuze->getObserverClient()->subscribeMe(tuze, vasy);
+    vasy->getObserverClient()->subscribeMe(vasy, tuze);
+    //vasy->getObserver()->attach(tuze);
+
+    //std::cout << vasy->getObserverRef() << std::endl;
+
     std::cout << "----Fight----" << std::endl;
 
     goga->attack(barbarian);
@@ -64,6 +70,8 @@ int main() {
     wizard->spellAttack(barbarian,"magicHit10");
     knight->attack(tuze);
     vasy->getMultiState()->transform();
+
+
 
     std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
