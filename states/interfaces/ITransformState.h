@@ -14,6 +14,7 @@ class ITransformState {
         virtual ~ITransformState();
 
         virtual void transform()=0;
+        virtual void sinchronization()=0;
 };
 
 #endif //ARMY_ITRANSFORM_STATE_H

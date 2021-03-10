@@ -29,6 +29,8 @@ class Unit : public IUnitState, public IUnitTransformState, public IUnitObserver
 
         virtual void attack(Unit* enemy)=0;
 
+        virtual void onEventAction()=0;
+
         virtual void gestalt()=0;
 
 };

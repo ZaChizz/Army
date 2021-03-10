@@ -18,7 +18,7 @@ class TransformState : public ITransformState {
 
         bool isHuman;
 
-        void castTransform();
+        void sinchronization();
 
     public:
         TransformState(Unit* iUnit, State* AnotherState);

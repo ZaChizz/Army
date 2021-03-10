@@ -62,11 +62,11 @@ int main() {
                                            new NecromancerAttack(),
                                            new MagicAttack(),
                                            new SpellBook(book));
-/*
+
     ITransformState* multiState = new TransformState(vasy,new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE));
 
     vasy->setMultiState(multiState);
-    */
+
 
     std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
@@ -102,13 +102,16 @@ int main() {
     knight->attack(pety);
     knight->attack(pety);
 
+
+
+
     std::cout << "after dead Pety" <<std::endl;
-    /*
+
     std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
     std::cout << *goga << std::endl;
     std::cout << *knight << std::endl;
-*/
+
     std::cout << *pety << std::endl;
 
 

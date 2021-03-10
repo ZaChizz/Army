@@ -16,12 +16,12 @@ TransformState::~TransformState() {
     delete(this->AnotherState);
 }
 
-void TransformState::castTransform() {
+void TransformState::sinchronization() {
 
 }
 
 void TransformState::transform() {
-    this->castTransform();
+    this->sinchronization();
 
     if ( this->isHuman ) {
         this->iUnit->setState(this->AnotherState);
