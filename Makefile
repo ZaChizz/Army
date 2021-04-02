@@ -23,6 +23,7 @@ compile:
 	g++ -std=c++20 units/Rogue.cpp -c
 	g++ -std=c++20 units/Berserker.cpp -c
 	g++ -std=c++20 units/Vampire.cpp -c
+	g++ -std=c++20 units/Werewolf.cpp -c
 	g++ -std=c++20 spellCasters/SpellCaster.cpp -c
 	g++ -std=c++20 spellCasters/Necromancer.cpp -c
 

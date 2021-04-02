@@ -12,7 +12,10 @@
 
 class Berserker : public Soldier {
     public:
-        Berserker(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form="Berserker");
+        Berserker(const std::string& name,
+                  State* uState = new NoMagicState((int)HP::BERSERKER,(int)DMG::BERSERKER,(int)MHP::BERSERKER),
+                  BaseAttack* uAttack = new BaseAttack(),
+                  const std::string& form="Berserker");
         ~Berserker();
 };
 

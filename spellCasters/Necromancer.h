@@ -19,8 +19,6 @@ public:
                 const std::string& form = "Necromancer");
 
     virtual ~Necromancer()=default;
-
-    //virtual void attack(Unit* enemy);
 };
 
 std::ostream& operator<<(std::ostream& out, Necromancer& necromancer);

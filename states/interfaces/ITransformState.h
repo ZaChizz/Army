@@ -13,7 +13,7 @@ class ITransformState {
         ITransformState();
         virtual ~ITransformState();
 
-        virtual void transform()=0;
+        virtual void transform(Unit* iUnit)=0;
         virtual void sinchronization()=0;
 };
 

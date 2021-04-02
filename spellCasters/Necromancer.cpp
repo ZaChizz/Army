@@ -11,12 +11,6 @@ Necromancer::Necromancer(const std::string& name,
                          SpellBook* sBook,
                          const std::string& form)
 :SpellCaster(name, uState, uAttack, mAttack, sBook, form){}
-/*
-void Necromancer::attack(Unit* enemy) {
-    this->getAttack().attack(this, enemy);
-    enemy->onEventAction();
-}
- */
 
 std::ostream& operator<<(std::ostream& out, Necromancer& necromancer) {
     out << necromancer.getName() << " - " << necromancer.getForm() << ": " <<std::endl;

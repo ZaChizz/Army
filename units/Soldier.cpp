@@ -4,15 +4,16 @@
 
 #include "Soldier.h"
 
-Soldier::Soldier(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form)
-    : Unit() {
-    this->uMultiState = nullptr;
-    this->name = name;
-    this->uState = uState;
-    this->uAttack = uAttack;
+Soldier::Soldier(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form, ITransformState* uMultiState)
+    : Unit(), name(name), uState(uState), uAttack(uAttack), form(form), uMultiState(uMultiState) {
+    if ( uState == nullptr ) {
+        this->uState = new State((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER);
+    }
+    if ( uAttack == nullptr ) {
+        this->uAttack = new BaseAttack();
+    }
     this->uObserverServer = new ObserverServer();
     this->uObserverClient = new ObserverClient();
-    this->form = form;
 }
 
 Soldier::~Soldier() {
@@ -72,6 +73,7 @@ void Soldier::setState(State* uState) {
 
 void Soldier::setMultiState(ITransformState* uMultiState) {
     this->uMultiState = uMultiState;
+    this->form = "Werewolf";
 }
 
 void Soldier::attack(Unit* enemy) {

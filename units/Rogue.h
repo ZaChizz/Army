@@ -11,7 +11,10 @@
 
 class Rogue : public Soldier {
     public:
-        Rogue(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form ="Rogue");
+        Rogue(const std::string& name,
+              State* uState = new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE),
+              BaseAttack* uAttack = new BaseAttack(),
+              const std::string& form ="Rogue");
         ~Rogue();
 
         void attack(Unit* enemy);

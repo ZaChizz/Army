@@ -22,7 +22,11 @@ class Soldier : public Unit {
         ObserverServer* uObserverServer;
 
     public:
-        Soldier(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form = "Soldier");
+        Soldier(const std::string& name,
+                State* uState = nullptr,
+                BaseAttack* uAttack = nullptr,
+                const std::string& form = "Soldier",
+                ITransformState* uMultiState = nullptr);
         virtual ~Soldier();
 
         void attack(Unit* enemy);

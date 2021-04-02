@@ -12,7 +12,6 @@ class Unit;
 
 class TransformState : public ITransformState {
     private:
-        Unit* iUnit;
         State* InitialState;
         State* AnotherState;
 
@@ -21,10 +20,10 @@ class TransformState : public ITransformState {
         void sinchronization();
 
     public:
-        TransformState(Unit* iUnit, State* AnotherState);
+        TransformState(State* AnotherState);
         ~TransformState();
 
-        void transform();
+        void transform(Unit* iUnit);
 };
 
 #endif //ARMY_TRANSFORM_STATE_H

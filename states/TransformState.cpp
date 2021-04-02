@@ -5,27 +5,35 @@
 #include "TransformState.h"
 #include "../units/Unit.h"
 
-TransformState::TransformState(Unit* iUnit,  State* AnotherState) : ITransformState() {
-    this->iUnit = iUnit;
-    this->InitialState = iUnit->getStateP();
+TransformState::TransformState(State* AnotherState) : ITransformState() {
+    this->InitialState = nullptr;
     this->AnotherState = AnotherState;
     this->isHuman = true;
 }
 
 TransformState::~TransformState() {
-    delete(this->AnotherState);
+    if ( this->isHuman ) {
+        delete(this->AnotherState);
+    } else {
+        delete (this->InitialState);
+    }
 }
 
 void TransformState::sinchronization() {
 
 }
 
-void TransformState::transform() {
+void TransformState::transform(Unit* iUnit) {
+    if ( this->InitialState == nullptr ) {
+        this->InitialState = iUnit->getStateP();
+    }
     this->sinchronization();
 
     if ( this->isHuman ) {
-        this->iUnit->setState(this->AnotherState);
+        iUnit->setState(this->AnotherState);
+        this->isHuman = false;
     } else {
-        this->iUnit->setState(this->InitialState);
+        iUnit->setState(this->InitialState);
+        this->isHuman = true;
     }
 }

@@ -14,7 +14,10 @@ class VampireAttack;
 
 class Vampire : public Soldier {
     public:
-        Vampire(const std::string& name, State* uState, BaseAttack* uAttack, const std::string& form = "Vampire");
+        Vampire(const std::string& name,
+                State* uState = new State((int)HP::VAMPIRE,(int)DMG::VAMPIRE,(int)MHP::VAMPIRE,(int)TYPEUNIT::UNDEAD),
+                BaseAttack* uAttack = new VampireAttack(),
+                const std::string& form = "Vampire");
         ~Vampire();
 };
 

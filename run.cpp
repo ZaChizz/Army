@@ -8,9 +8,9 @@
 #include "units/Rogue.h"
 #include "units/Berserker.h"
 #include "units/Vampire.h"
+#include "units/Werewolf.h"
 #include "spellCasters/SpellCaster.h"
 #include "spellCasters/Necromancer.h"
-#include "states/TransformState.h"
 #include "Config.h"
 #include "attacks/WerewolfAttack.h"
 
@@ -25,47 +25,27 @@ int main() {
                                            new MagicAttack(),
                                            new SpellBook(book)
                                            );
-
-
-    Berserker* barbarian = new Berserker ("Barbarian",
-                                new NoMagicState((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
-                                new BaseAttack());
-
-
-    Vampire* goga = new Vampire ("Goga",
-                                 new State((int)HP::VAMPIRE,(int)DMG::VAMPIRE,(int)MHP::VAMPIRE,(int)TYPEUNIT::UNDEAD),
-                                 new VampireAttack());
-
-
-
-    Rogue* knight = new Rogue ("Knight",
-                               new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE),
-                               new BaseAttack());
-
-
-    Berserker* tuze = new Berserker("Tuze",
-                                    new NoMagicState((int)HP::BERSERKER,(int)DMG::BERSERKER,(int)MHP::BERSERKER),
-                                    new BaseAttack());
-
-
-    Soldier* vasy = new Soldier("Vasy",
-                                new State((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
-                                new WerewolfAttack());
-
-
-    Soldier* pety = new Soldier("Pety",
-                                new State((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
-                                new BaseAttack());
-
     Necromancer* necro = new Necromancer ("Necro",
-                                           new State((int)HP::SPELLCASTER,(int)DMG::SPELLCASTER,(int)MHP::SPELLCASTER),
-                                           new NecromancerAttack(),
-                                           new MagicAttack(),
-                                           new SpellBook(book));
+                                          new State((int)HP::SPELLCASTER,(int)DMG::SPELLCASTER,(int)MHP::SPELLCASTER),
+                                          new NecromancerAttack(),
+                                          new MagicAttack(),
+                                          new SpellBook(book));
+    Soldier* pety = new Soldier("Pety");
 
-    ITransformState* multiState = new TransformState(vasy,new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE));
+    Rogue* knight = new Rogue ("Knight");
 
-    vasy->setMultiState(multiState);
+    Berserker* barbarian = new Berserker ("Barbarian");
+
+    Vampire* goga = new Vampire ("Goga");
+
+
+
+    Berserker* tuze = new Berserker("Tuze");
+
+    Werewolf* vasy = new Werewolf("Vasy");
+
+
+
 
 
     std::cout << *wizard << std::endl;
@@ -93,7 +73,7 @@ int main() {
     std::cout << *pety << std::endl;
     std::cout <<std::endl;
     std::cout << "++++++++++++" <<std::endl;
-    vasy->getMultiState()->transform();
+    vasy->getMultiState()->transform(vasy);
 
     knight->attack(pety);
     knight->attack(pety);
@@ -105,7 +85,8 @@ int main() {
 
 
 
-    std::cout << "after dead Pety" <<std::endl;
+    std::cout << "after dead Pety" << std::endl;
+    std::cout << "---------------" << std::endl;
 
     std::cout << *wizard << std::endl;
     std::cout << *barbarian << std::endl;
@@ -123,6 +104,8 @@ int main() {
     delete(knight);
     delete(tuze);
     delete(wizard);
+    delete(vasy);
+    delete(pety);
 
     return 0;
 }
