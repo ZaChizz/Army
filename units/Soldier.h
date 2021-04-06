@@ -25,7 +25,7 @@ class Soldier : public Unit {
         Soldier(const std::string& name,
                 State* uState = nullptr,
                 BaseAttack* uAttack = nullptr,
-                const std::string& form = "Soldier",
+                const std::string& form = "soldier",
                 ITransformState* uMultiState = nullptr);
         virtual ~Soldier();
 

@@ -10,7 +10,7 @@ WerewolfAttack::~WerewolfAttack() {}
 
 const void WerewolfAttack::attack(Unit* attacker, Unit* enemy) {
     enemy->getState().takeDamage(attacker->getState().getDamage());
-    ITransformState* multiState = new TransformState(new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE));
+    ITransformState* multiState = new TransformState(new State((int)HP::WEREWOLF_WOLF,(int)DMG::WEREWOLF_WOLF,(int)MHP::WEREWOLF_WOLF));
     enemy->setMultiState(multiState);
     enemy->onEventAction();
 }

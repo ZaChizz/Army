@@ -16,10 +16,10 @@ class WerewolfAttack;
 class Werewolf : public Soldier {
 public:
     Werewolf(const std::string& name,
-            State* uState = new State((int)HP::SOLDIER,(int)DMG::SOLDIER,(int)MHP::SOLDIER),
+            State* uState = new State((int)HP::WEREWOLF_HUMAN,(int)DMG::WEREWOLF_HUMAN,(int)MHP::WEREWOLF_HUMAN),
             BaseAttack* uAttack = new WerewolfAttack(),
             const std::string& form = "Werewolf",
-            ITransformState* uMultiState = new TransformState(new State((int)HP::ROGUE,(int)DMG::ROGUE,(int)MHP::ROGUE)));
+            ITransformState* uMultiState = new TransformState(new State((int)HP::WEREWOLF_WOLF,(int)DMG::WEREWOLF_WOLF,(int)MHP::WEREWOLF_WOLF)));
     ~Werewolf();
 };
 

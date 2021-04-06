@@ -10,7 +10,8 @@ enum class HP {
     ROGUE = 85,
     BERSERKER = 90,
     VAMPIRE = 70,
-    WEREWOLF = 60,
+    WEREWOLF_HUMAN = 60,
+    WEREWOLF_WOLF = 85,
     SPELLCASTER = 70
 };
 
@@ -19,7 +20,8 @@ enum class DMG {
     ROGUE = 30,
     BERSERKER = 30,
     VAMPIRE = 35,
-    WEREWOLF = 25,
+    WEREWOLF_HUMAN = 25,
+    WEREWOLF_WOLF = 30,
     SPELLCASTER = 70
 };
 
@@ -43,7 +45,8 @@ enum class MHP {
     ROGUE = 20,
     BERSERKER = 40,
     VAMPIRE = 35,
-    WEREWOLF = 40,
+    WEREWOLF_HUMAN = 40,
+    WEREWOLF_WOLF = 20,
     SPELLCASTER = 70
 };
 

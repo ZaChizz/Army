@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <typeinfo>
+#include "Config.h"
 #include "units/Soldier.h"
 #include "units/Rogue.h"
 #include "units/Berserker.h"
@@ -11,8 +12,7 @@
 #include "units/Werewolf.h"
 #include "spellCasters/SpellCaster.h"
 #include "spellCasters/Necromancer.h"
-#include "Config.h"
-#include "attacks/WerewolfAttack.h"
+
 
 int main() {
     std::map <std::string, int> book;
@@ -82,9 +82,6 @@ int main() {
     knight->attack(pety);
     knight->attack(pety);
 
-
-
-
     std::cout << "after dead Pety" << std::endl;
     std::cout << "---------------" << std::endl;
 
@@ -98,6 +95,8 @@ int main() {
 
     std::cout << *vasy << std::endl;
     std::cout << *tuze << std::endl;
+
+    pety->getState().getHitPoints();
 
     delete(barbarian);
     delete(goga);
