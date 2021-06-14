@@ -1,4 +1,11 @@
 *.exe
 *.o
+*.gcda
+*.gcno
+*.info
 /cmake-build-debug/
 /CMakeLists.txt
+/.vs/
+/.vscode/
+/.idea/
+/report/
