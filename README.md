@@ -1,4 +1,5 @@
 # Army
+UML https://drive.google.com/file/d/1WCXcw5Bm0zio9IePtExzsSnnBiFtsq7t/view
 Войска.
 
 Часть 1. Обязательно для допуска.
